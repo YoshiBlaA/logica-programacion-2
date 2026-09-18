@@ -15,12 +15,14 @@ convertirEl.addEventListener("click", () => {
 
         resultadoEl.innerHTML = `
             <div class="alert alert-success">
-                <p><strong>Kelvin:</strong> ${kelvin}</p>
-                <p><strong>Fahrenheit:</strong> ${fahrenheit}</p>
+                <p><strong>Grados Kelvin:</strong> ${kelvin}</p>
+            </div>
+            <div class="alert alert-info">
+                <p><strong>Grados Fahrenheit:</strong> ${fahrenheit}</p>
             </div>
         `;
-    }
-    catch (e) {
+    } catch (e) {
+        console.error("wertwertwe");
         resultadoEl.innerHTML = `
             <div class="alert alert-danger">
                 ${e.message}
