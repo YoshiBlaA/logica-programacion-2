@@ -1,0 +1,30 @@
+const temperaturaEl = document.getElementById("temperatura");
+const convertirEl = document.getElementById("convertir");
+const resultadoEl = document.getElementById("resultado");
+
+convertirEl.addEventListener("click", () => {
+    try {
+        const temperatura = Number(temperaturaEl.value);
+
+        if (Number.isNaN(temperatura)) {
+            throw new Error("Solo puedes ingresar números");
+        }
+
+        const kelvin = temperatura + 273.15;
+        const fahrenheit = (temperatura * (9 / 5)) + 32;
+
+        resultadoEl.innerHTML = `
+            <div class="alert alert-success">
+                <p><strong>Kelvin:</strong> ${kelvin}</p>
+                <p><strong>Fahrenheit:</strong> ${fahrenheit}</p>
+            </div>
+        `;
+    }
+    catch (e) {
+        resultadoEl.innerHTML = `
+            <div class="alert alert-danger">
+                ${e.message}
+            </div>
+        `;
+    }
+});
