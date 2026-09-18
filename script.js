@@ -4,7 +4,13 @@ const resultadoEl = document.getElementById("resultado");
 
 convertirEl.addEventListener("click", () => {
     try {
-        const temperatura = Number(temperaturaEl.value);
+        const valor = temperaturaEl.value;
+
+        if (valor === "") {
+            throw new Error("Debes ingresar una temperatura");
+        }
+
+        const temperatura = Number(valor);
 
         if (Number.isNaN(temperatura)) {
             throw new Error("Solo puedes ingresar números");
@@ -21,8 +27,10 @@ convertirEl.addEventListener("click", () => {
                 <p><strong>Grados Fahrenheit:</strong> ${fahrenheit}</p>
             </div>
         `;
+
     } catch (e) {
-        console.error("wertwertwe");
+        console.error(e);
+
         resultadoEl.innerHTML = `
             <div class="alert alert-danger">
                 ${e.message}
